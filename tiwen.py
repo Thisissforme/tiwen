@@ -41,7 +41,7 @@ if __name__ == '__main__':
         tiwen_daka(headers=random.choice(headers),name="东东",id_uid=["9008423","1462498"])
         tiwen_daka(headers=random.choice(headers),name="阿强",id_uid=["9002387","1462514"])
         print('全部成功------------')
-        qmsg(name='',txt='体温填报成功')
+        qmsg(name='',txt='全部体温填报成功')
     except:
         qmsg(name='',txt='体温填报出错')
 
