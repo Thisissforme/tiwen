@@ -24,13 +24,16 @@ def tiwen_daka(headers,name,id_uid):
                     "ZWTW": "36.5"}
     res=requests.post("https://yqfkapi.zhxy.net/api/ClockIn/SaveTem", data=data_tiWen, headers=headers)
     resp=eval(res.text)
-    if resp['code']==200 and resp["info"]=="响应成功":
-        print(name+":success")       
-    else:
+    try:
+        if resp['code']==200 and resp["info"]=="响应成功":
+            print(name+":success")       
+    except:
         print(name+":Error")
 #         ls.append(0)
         qmsg(name,txt='体温填报失败')
-    time.sleep(1)
+    print("五分钟后下一个体温填报")
+    time.sleep(60*50)
+    
 if __name__ == '__main__':
     try:
         tiwen_daka(headers=random.choice(headers),name="小周",id_uid=["8496477","1462508"])
